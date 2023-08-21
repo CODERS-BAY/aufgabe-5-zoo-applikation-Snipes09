@@ -55,7 +55,7 @@ public class KassiererController : BaseController
     {   
         var model = new Kassierer();
         var item = await model.GetAllTickets();
-        return Ok(item);
+        return Ok(new{tickets=item, sum=item.Sum(x => x.Preis)});
     }
 
    
@@ -64,7 +64,8 @@ public class KassiererController : BaseController
     {   
         var model = new Kassierer();
         var item = await model.GetTicketsByDateAsync(date);
-        return Ok(item);
+        var sum = tickets.Sum(x => x.Preis);
+        return Ok(new{tickets,sum});
     }
     
 
