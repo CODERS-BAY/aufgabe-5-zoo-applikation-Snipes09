@@ -27,13 +27,18 @@ public class ZoobesucherService : DBConnectionService
 
                 using (var reader = await command.ExecuteReaderAsync())
                 {
+                 while (await reader.ReadAsync())
+                    {
                     animal.Id = reader.GetInt32(0);
                     animal.Gattung = reader.GetString(1);
                     animal.Nahrung = reader.GetString(2);
                     animal.GehegeId = reader.GetInt32(3);
                 }
+                
             }
         }
+      
+      }
         return animal;
     }
 
