@@ -13,7 +13,7 @@ public class Tierpfleger : Mitarbeiter
 
     public Tierpfleger()
     {
-
+        _service = new TierpflegerService();
     }
 
     
