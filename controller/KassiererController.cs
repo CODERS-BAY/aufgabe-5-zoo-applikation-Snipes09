@@ -63,7 +63,7 @@ public class KassiererController : BaseController
     public async Task<IActionResult> GetAllTicketsOfDate(DateTime date)
     {   
         var model = new Kassierer();
-        var item = await model.GetTicketsByDateAsync(date);
+        var tickets = await model.GetTicketsByDateAsync(date);
         var sum = tickets.Sum(x => x.Preis);
         return Ok(new{tickets,sum});
     }
