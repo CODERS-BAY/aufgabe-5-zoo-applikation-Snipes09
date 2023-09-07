@@ -1,19 +1,18 @@
 ﻿namespace ZooAPI.model;
 
-public class Ticket : IComparable<Ticket>
+public class Ticket
 {
-    public int CompareTo(Ticket? other)
-    {
-        throw new NotImplementedException();
-    }
+    public int Id { get; set; }
+    public DateTime Datum { get; set; }
+    public DateTime Verkaufsdatum { get; set; }
+    public decimal Preis { get; set; }
+    public int UserId { get; set; }
 
-    public override bool Equals(object? obj)
-    {
-        throw new NotImplementedException();
-    }
+   
 
     public override string ToString()
     {
-        throw new NotImplementedException();
+        
+        return $"Id: {Id}, Datum: {Datum}, Verkaufsdatum: {Verkaufsdatum}, Preis: {Preis}, UserId: {UserId}";
     }
 }
